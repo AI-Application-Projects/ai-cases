@@ -1,1 +1,1 @@
-document.documentElement.dataset.case='rag-knowledge-ui';
+location.replace('../../rag-knowledge-ui/');

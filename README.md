@@ -15,9 +15,9 @@ ai-Cases/
 ├── index.html / style.css / main.js     # 作品集首页
 ├── case-base.css                        # Case 页面共享样式
 ├── assets/                              # 封面与截图素材
-├── cases/                               # 真实案例入口
-│   └── <case-slug>/index.html|style.css|main.js
-├── demos/                               # 兼容入口，跳转至 cases/
+├── <case-slug>/                         # 真实案例入口（一级短路径）
+│   └── index.html|style.css|main.js
+├── cases/ 与 demos/                     # 兼容旧链接，自动跳转
 └── docs/                                # 案例与定位文档
 ```
 
@@ -58,10 +58,10 @@ Save
 
 ## 如何新增 Case
 
-1. 复制 `cases/hand-gesture-store/` 为 `cases/your-case-slug/`。
+1. 复制 `hand-gesture-store/` 为 `your-case-slug/`。
 2. 修改其中 `index.html` 的分类、价值、场景、技术栈、商业价值和开发计划。
-3. 在根目录 `main.js` 的 `cases` 数组新增卡片记录，并将 `path` 指向 `cases/your-case-slug/`。
-4. 可选：复制对应 `demos/` 目录，保留旧链接兼容入口。
+3. 在根目录 `main.js` 的 `cases` 数组新增卡片记录，并将 `path` 指向 `your-case-slug/`。
+4. 如已有旧链接，可在 `cases/` 或 `demos/` 中保留跳转页兼容。
 5. 使用 [docs/case-template.md](docs/case-template.md) 补齐案例说明。
 
 ## Demo 案例模板
