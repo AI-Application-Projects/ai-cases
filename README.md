@@ -6,7 +6,7 @@
 
 不只展示模型或代码，而是以“技术能力 → 业务场景 → 在线体验 → 技术实现 → 商业价值”组织每个 Case。适用于简历、面试、GitHub/LinkedIn 主页、售前沟通与方案验证。
 
-在线地址（发布后替换）：`https://your-username.github.io/ai-cases/`
+在线地址：`https://ai-application-projects.github.io/ai-cases/`
 
 ## 目录结构
 
@@ -52,7 +52,7 @@ Folder: /root
 Save
 ```
 
-3. 发布后访问：`https://你的GitHub用户名.github.io/ai-cases/`。
+3. 本项目发布后访问：`https://ai-application-projects.github.io/ai-cases/`。
 
 > 若使用组织账号，请确认仓库名与访问路径一致；GitHub Pages 首次发布通常需要数分钟。
 
