@@ -1,0 +1,47 @@
+app:
+  name: AI Tender / Proposal Evaluator
+  mode: workflow
+  version: 0.1.0
+workflow:
+  inputs:
+    - name: tender_text
+      type: paragraph
+      required: true
+    - name: proposal_text
+      type: paragraph
+      required: true
+    - name: language
+      type: text-input
+      default: zh-CN
+  nodes:
+    - id: start
+      type: start
+    - id: extract_project_info
+      type: llm
+      prompt_file: ../prompts/01-extract-project-info.md
+      output: project_info
+    - id: extract_mandatory_requirements
+      type: llm
+      prompt_file: ../prompts/02-extract-mandatory-requirements.md
+      output: mandatory_requirements
+    - id: extract_scoring_criteria
+      type: llm
+      prompt_file: ../prompts/03-extract-scoring-criteria.md
+      output: scoring_criteria
+    - id: risk_and_gap_analysis
+      type: llm
+      prompt_file: ../prompts/04-risk-and-gap-analysis.md
+      output: gap_analysis
+    - id: generate_review_report
+      type: llm
+      prompt_file: ../prompts/05-generate-review-report.md
+      output: report_markdown
+    - id: end
+      type: end
+  edges:
+    - [start, extract_project_info]
+    - [extract_project_info, extract_mandatory_requirements]
+    - [extract_mandatory_requirements, extract_scoring_criteria]
+    - [extract_scoring_criteria, risk_and_gap_analysis]
+    - [risk_and_gap_analysis, generate_review_report]
+    - [generate_review_report, end]

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Tender review output",
+  "type": "object",
+  "required": ["project_info", "mandatory_requirements", "scoring_criteria", "gap_analysis", "recommendation", "manual_review_queue"],
+  "properties": {
+    "project_info": {"type": "object", "required": ["project_name", "industry", "buyer", "budget", "timeline", "delivery_location", "key_dates", "project_scope"], "properties": {"project_name": {"type": "string"}, "industry": {"type": "string"}, "buyer": {"type": "string"}, "budget": {"type": "string"}, "timeline": {"type": "string"}, "delivery_location": {"type": "string"}, "key_dates": {"type": "array", "items": {"type": "object", "required": ["name", "date"], "properties": {"name": {"type": "string"}, "date": {"type": "string"}}}}, "project_scope": {"type": "array", "items": {"type": "string"}}}},
+    "mandatory_requirements": {"type": "array", "items": {"type": "object", "required": ["requirement", "type", "importance", "evidence_text", "risk_if_missing", "status"], "properties": {"requirement": {"type": "string"}, "type": {"enum": ["Qualification", "Technical", "Delivery", "Security", "Compliance", "Service", "Commercial"]}, "importance": {"enum": ["Critical", "High", "Medium"]}, "evidence_text": {"type": "string"}, "risk_if_missing": {"type": "string"}, "status": {"enum": ["Met", "Gap", "Unclear"]}}}},
+    "scoring_criteria": {"type": "array", "items": {"type": "object", "required": ["scoring_area", "weight", "requirement", "evaluation_method", "response_readiness"], "properties": {"scoring_area": {"type": "string"}, "weight": {"type": "number", "minimum": 0, "maximum": 100}, "requirement": {"type": "string"}, "evaluation_method": {"type": "string"}, "response_readiness": {"enum": ["Ready", "Partial", "Not Ready"]}}}},
+    "gap_analysis": {"type": "array", "items": {"type": "object", "required": ["tender_requirement", "current_response", "gap", "risk_level", "suggested_action", "manual_review_required"], "properties": {"tender_requirement": {"type": "string"}, "current_response": {"type": "string"}, "gap": {"type": "string"}, "risk_level": {"enum": ["High", "Medium", "Low"]}, "suggested_action": {"type": "string"}, "manual_review_required": {"type": "boolean"}}}},
+    "recommendation": {"type": "object", "required": ["decision", "rationale"], "properties": {"decision": {"enum": ["Bid", "Conditional Bid", "No-Bid"]}, "rationale": {"type": "string"}}},
+    "manual_review_queue": {"type": "array", "items": {"type": "string"}}
+  }
+}
