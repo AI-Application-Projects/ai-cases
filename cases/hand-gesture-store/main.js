@@ -1,1 +1,1 @@
-location.replace('../../hand-gesture-store/');
+document.documentElement.dataset.case='hand-gesture-store';

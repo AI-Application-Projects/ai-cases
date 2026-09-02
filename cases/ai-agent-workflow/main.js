@@ -1,1 +1,1 @@
-location.replace('../../ai-agent-workflow/');
+document.documentElement.dataset.case='ai-agent-workflow';

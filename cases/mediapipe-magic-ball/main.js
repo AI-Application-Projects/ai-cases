@@ -1,1 +1,1 @@
-location.replace('../../mediapipe-magic-ball/');
+document.documentElement.dataset.case='mediapipe-magic-ball';
